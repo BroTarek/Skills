@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable Image Gallery</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .options {
+            display: flex;
+            gap: 10px;
+            width: 90%;
+            max-width: 1200px;
+            height: 300px;
+        }
+
+        .option {
+            flex: 1;
+            background-image: var(--optionImage);
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: flex 0.6s ease, filter 0.4s ease;
+            overflow: hidden;
+        }
+
+        .option.active {
+            flex: 4;
+        }
+
+        .option:not(.active) {
+            filter: brightness(0.6);
+        }
+
+        .option:hover:not(.active) {
+            filter: brightness(0.8);
+        }
+
+        .label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .option.active .label {
+            opacity: 1;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 40px;
+            min-height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info .main {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .info .sub {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="options">
+
+        <div class="option active" style="--optionImage: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+            <div class="label">
+                <div class="icon"><i class="fas fa-walking"></i></div>
+                <div class="info">
+                    <div class="main">Mountain Hike</div>
+                    <div class="sub">Adventure in the high peaks</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="option" style="--optionImage: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+            <div class="label">
+                <div class="icon"><i class="fas fa-tree"></i></div>
+                <div class="info">
+                    <div class="main">Forest</div>
+                    <div class="sub">Explore the lush green woods</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="option" style="--optionImage: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+            <div class="label">
+                <div class="icon"><i class="fas fa-mountain"></i></div>
+                <div class="info">
+                    <div class="main">Mountains</div>
+                    <div class="sub">Majestic peaks and valleys</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="option" style="--optionImage: url('https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');">
+            <div class="label">
+                <div class="icon"><i class="fas fa-water"></i></div>
+                <div class="info">
+                    <div class="main">River</div>
+                    <div class="sub">Flowing waters through canyons</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const options = document.querySelectorAll(".option");
+
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                options.forEach(o => o.classList.remove("active"));
+                option.classList.add("active");
+            });
+            
+            // Add keyboard navigation support
+            option.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    options.forEach(o => o.classList.remove("active"));
+                    option.classList.add("active");
+                    e.preventDefault();
+                }
+            });
+            
+            // Make options focusable for accessibility
+            option.setAttribute("tabindex", "0");
+        });
+    </script>
+
+</body>
+</html>
