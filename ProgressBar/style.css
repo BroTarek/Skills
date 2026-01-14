@@ -1,0 +1,26 @@
+body {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.bar {
+    height: 3rem;
+    width: 15rem;
+    background-color: aquamarine;
+    border-radius: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar::before {
+    content: '';
+    height: 3rem;
+    width: var(--progress-width, 0); /* Use CSS variable with fallback */
+    background-color: black;
+    position: absolute;
+    transition: width 0.3s ease; /* Optional: Add smooth transition */
+}
