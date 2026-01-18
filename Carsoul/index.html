@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Carousel track/slides container -->
+        <div class="carousel">
+            <div class="carousel-slide active">
+                <img src="OP1.jpg" alt="OP1.jpg">
+                <div class="caption">Caption1</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="OP4.jpg" alt="OP4.jpg">
+                <div class="caption">Caption2</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="OP6.jpg" alt="OP6.jpg">
+                <div class="caption">Caption3</div>
+            </div>
+        </div> <!-- End of .carousel -->
+
+        <!-- Navigation buttons (OUTSIDE .carousel) -->
+        <button class="carousel-btn prev-btn">‹</button>
+        <button class="carousel-btn next-btn">›</button>
+
+        <!-- Dots indicator (OUTSIDE .carousel) -->
+        <div class="carousel-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

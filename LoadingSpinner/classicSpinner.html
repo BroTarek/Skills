@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Step 1: Create the circle container */
+        .spinner {
+            width: 60px;           /* Width of the spinner */
+            height: 60px;          /* Height of the spinner */
+            border: 6px solid #ad1b1b;  /* Light gray background circle */
+            border-top: 6px solid #3498db; /* Blue animated part */
+            border-radius: 50%;    /*Makes it a circle*/
+            animation: spin 2s linear infinite; /* Animation properties */
+        }
+        
+        /* Step 2: Define the animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }    /* Start at 0 degrees */
+            100% { transform: rotate(360deg); } /* End at 360 degrees (full circle) */
+        }
+        
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="spinner"></div>
+</body>
+</html>
